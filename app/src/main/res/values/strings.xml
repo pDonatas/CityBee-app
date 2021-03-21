@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">CityBee app</string>
+    <string name="title_activity_admin">Administavimas</string>
+    <string name="tab_text_1">Vartotojai</string>
+    <string name="tab_text_2">Automobiliai</string>
+    <string name="ban">Užblokuoti</string>
+    <string name="edit">Redaguoti</string>
+    <string name="create_user">Kurti vartotoją</string>
+    <string name="edit_user">Redaguoti vartotoją</string>
+    <string name="username">Vartotojo vardas</string>
+    <string name="password">Vartotojo slaptažodis</string>
+    <string name="email">Vartotojo el. pašto adresas</string>
+    <string name="submit">Patvirtinti</string>
 </resources>
