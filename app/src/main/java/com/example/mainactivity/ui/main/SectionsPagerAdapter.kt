@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.mainactivity.CarsFragment
 import com.example.mainactivity.R
 import com.example.mainactivity.UsersFragment
 
@@ -16,6 +17,7 @@ private val TAB_TITLES = arrayOf(
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
+@Suppress("DEPRECATION")
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
@@ -23,7 +25,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         var fragment: Fragment = UsersFragment()
 
         if (position == 1) {
-            //fragment = CarsFragment()
+            fragment = CarsFragment()
         }
 
         return fragment
