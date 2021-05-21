@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.mainactivity.CarViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CarsFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/car_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/car_model"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/car_manufacturer_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Manufacturer"
+            app:layout_constraintBaseline_toBaselineOf="@+id/car_model"
+            app:layout_constraintEnd_toStartOf="@+id/car_model"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/car_model"
+            android:layout_width="187dp"
+            android:layout_height="49dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Model"
+            app:layout_constraintBottom_toTopOf="@+id/manufacture_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/car_manufacturer_field"
+            app:layout_constraintTop_toBottomOf="@+id/car_recycler_view" />
+
+        <EditText
+            android:id="@+id/manufacture_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Year"
+            app:layout_constraintBottom_toTopOf="@+id/add_car"
+            app:layout_constraintEnd_toStartOf="@+id/manufacture_price"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/manufacture_price"
+            android:layout_width="176dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="1dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Price"
+            app:layout_constraintBottom_toTopOf="@+id/add_car"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/manufacture_year"
+            app:layout_constraintTop_toBottomOf="@+id/car_model" />
+
+        <Button
+            android:id="@+id/add_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="149dp"
+            android:layout_marginBottom="25dp"
+            android:text="Add car"
+            app:layout_constraintBottom_toTopOf="@+id/filter_price"
+            app:layout_constraintStart_toStartOf="@+id/manufacture_year"
+            app:layout_constraintTop_toBottomOf="@+id/manufacture_price" />
+
+        <EditText
+            android:id="@+id/filter_year"
+            android:layout_width="183dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Manufacture year"
+            app:layout_constraintBaseline_toBaselineOf="@+id/filter_price"
+            app:layout_constraintEnd_toStartOf="@+id/filter_price"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/filter_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="12dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Price"
+            app:layout_constraintBottom_toTopOf="@+id/filterBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/filter_year"
+            app:layout_constraintTop_toBottomOf="@+id/add_car" />
+
+        <Button
+            android:id="@+id/filterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="147dp"
+            android:layout_marginBottom="86dp"
+            android:text="Filter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/filter_year"
+            app:layout_constraintTop_toBottomOf="@+id/filter_price" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
