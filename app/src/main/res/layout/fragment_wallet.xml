@@ -12,13 +12,14 @@
         android:id="@+id/money"
         android:layout_width="124dp"
         android:layout_height="52dp"
-        android:text="@{money}"
+        android:text="10"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="10" />
+        tools:text="10"
+        />
 
     <Button
         android:id="@+id/add_money_btn"
