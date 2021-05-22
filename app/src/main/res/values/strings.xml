@@ -11,4 +11,14 @@
     <string name="password">Vartotojo slaptažodis</string>
     <string name="email">Vartotojo el. pašto adresas</string>
     <string name="submit">Patvirtinti</string>
+    <string name="title_activity_auth">Autentifikacija</string>
+    <string name="prompt_email">El. paštas</string>
+    <string name="prompt_password">Slaptažodis</string>
+    <string name="action_sign_in">Prisijungti</string>
+    <string name="action_sign_in_short">Prisijungti</string>
+    <string name="invalid_username">Blogas vartotojo vardas</string>
+    <string name="invalid_password">Slaptažodį turi sudaryti bent 5 simboliai</string>
+    <string name="login_failed">"Prisijungti nepavyko"</string>
+    <string name="action_register">Registracija</string>
+    <string name="invalid_name">Vartotojo vardas negali būti tuščias</string>
 </resources>
