@@ -101,6 +101,7 @@ class Auth : AppCompatActivity() {
             register.setOnClickListener {
                 val intent = Intent(applicationContext, Registration::class.java)
                 startActivity(intent)
+                finish();
             }
         }
     }
