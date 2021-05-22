@@ -1,21 +1,22 @@
 package com.example.mainactivity
 
+import android.R.attr.data
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mainactivity.databinding.ItemUserBinding
+import com.example.mainactivity.databinding.FragmentUsersBinding
 
-class UserAdapter(val clickListener: UserClickListener) :
+
+class UserAdapter(private val editListener: UserEditListener, private val banListener: UserBanListener) :
     ListAdapter<User, UserAdapter.ViewHolder>(UserDiffCallback()) {
 
-    class ViewHolder(val binding: ItemUserBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: User, clickListener: UserClickListener) {
-            binding.user = user
-            binding.clickListener = clickListener
-        }
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val name = view.findViewById<TextView>(R.id.username);
+        val email = view.findViewById<TextView>(R.id.email);
     }
 
     class UserDiffCallback : DiffUtil.ItemCallback<User>() {
@@ -28,25 +29,30 @@ class UserAdapter(val clickListener: UserClickListener) :
         }
     }
 
-    class UserClickListener(val clickListener: (User: User) -> Unit) {
+    class UserEditListener(val editListener: (User: User) -> Unit) {
         fun onClick(User: User) {
-            clickListener(User)
+            editListener(User)
+        }
+    }
+
+    class UserBanListener(val banListener: (User: User) -> Unit) {
+        fun onClick(User: User) {
+            banListener(User)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemUserBinding
-                .inflate(
-                    LayoutInflater
-                        .from(parent.context)
-                )
+            LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.fragment_users, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
+        val data = getItem(position)
+
+        holder.name.text = data.username
+        holder.email.text = data.email
     }
-
-
 }

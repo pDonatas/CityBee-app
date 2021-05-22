@@ -21,15 +21,17 @@ class UserViewModel(context: Context) : ViewModel() {
         getAllUsers()
     }
 
-    fun getAllUsers() {
+    private fun getAllUsers() {
         viewModelScope.launch {
             _users.postValue(database.userDao().getAll())
         }
     }
 
-    fun addCar(username: String?, email: String?, password: String?, money: String?) {
+    fun addUser(username: String?, email: String?, password: String?, money: String?) {
+        val text = String.format("%s, %s, %s, %s", username, email, password, money);
+        println(text);
         if (username != null && email != null && password != null && money != null) {
-            money.toFloatOrNull()?.let {
+            money.toDoubleOrNull()?.let {
                 val user = User(0, username, email, password, it)
                 viewModelScope.launch {
                     database.userDao().insertUser(user)
@@ -58,6 +60,20 @@ class UserViewModel(context: Context) : ViewModel() {
     fun deleteUser(user: User) {
         viewModelScope.launch {
             database.userDao().deleteUser(user)
+            getAllUsers()
+        }
+    }
+
+    fun updateUser(user: User) {
+        viewModelScope.launch {
+            database.userDao().updateUser(user)
+            getAllUsers()
+        }
+    }
+
+    fun banUser(user: User) {
+        viewModelScope.launch {
+            database.userDao().banUser(user.id)
             getAllUsers()
         }
     }

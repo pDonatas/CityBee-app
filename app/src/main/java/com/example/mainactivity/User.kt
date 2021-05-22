@@ -9,5 +9,7 @@ data class User(
         val username: String,
         val email: String,
         val password: String,
-        val money: Float
+        val money: Double,
+        val banned: Boolean = false,
+        val role: Int = 0
 )

@@ -1,9 +1,6 @@
 package com.example.mainactivity
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface UserDao {
@@ -18,4 +15,10 @@ interface UserDao {
 
     @Delete
     suspend fun deleteUser(user: User)
+
+    @Update
+    fun updateUser(user: User)
+
+    @Query("UPDATE User SET banned=1 WHERE id=:id")
+    fun banUser(id: Int)
 }
