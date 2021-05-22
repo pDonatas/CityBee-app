@@ -103,6 +103,7 @@ class Registration : AppCompatActivity() {
                     loading.visibility = View.GONE
                     val intent = Intent(applicationContext, Auth::class.java)
                     startActivity(intent)
+                    finish();
                 } else {
                     Toast.makeText(applicationContext, "Toks vartotojas jau egzistuoja", Toast.LENGTH_SHORT).show();
                     loading.visibility = View.GONE
@@ -112,6 +113,7 @@ class Registration : AppCompatActivity() {
             login.setOnClickListener {
                 val intent = Intent(applicationContext, Auth::class.java)
                 startActivity(intent)
+                finish();
             }
         }
     }
