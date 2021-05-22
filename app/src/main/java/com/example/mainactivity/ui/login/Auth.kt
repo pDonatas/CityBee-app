@@ -63,6 +63,8 @@ class Auth : AppCompatActivity() {
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
                 setResult(Activity.RESULT_OK)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         })
@@ -113,7 +115,9 @@ class Auth : AppCompatActivity() {
 
         val editor = pref.edit();
 
-        editor.putInt("user", model.id)
+        editor.putInt("user_id", model.id)
+        editor.apply()
+        println("SAVED: " +model.id)
     }
 
     private fun showLoginFailed(errorString: String) {
