@@ -24,6 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MainActivity">
+        <activity android:name=".Registration" />
+        <activity
+            android:name=".ui.login.Auth"
+            android:label="@string/title_activity_auth" />
         <activity
             android:name=".Admin"
             android:label="@string/title_activity_admin"
