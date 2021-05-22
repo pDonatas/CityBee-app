@@ -1,6 +1,8 @@
 package com.example.mainactivity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -26,9 +28,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val pref = applicationContext
             .getSharedPreferences("cityBee", 0)
 
+        println("Checking if user logged in")
+        println(pref.all)
         if (!pref.contains("user_id")) {
+            println("Showing log in form")
             val intent = Intent(this, Auth::class.java)
             startActivity(intent)
+            finish()
         }
 
         val intent = Intent(this, Admin::class.java)
@@ -43,6 +49,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.nav_view)
 
+        val logout = findViewById<Button>(R.id.logout)
+
+        logout.setOnClickListener {
+            logout()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -52,5 +68,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(kaunas).title("Marker in Kaunas"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kaunas, 20f))
 
+    }
+
+    fun logout() {
+        val pref = applicationContext
+                .getSharedPreferences("cityBee", 0)
+        pref.edit().clear().apply()
     }
 }

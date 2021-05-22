@@ -1,6 +1,7 @@
 package com.example.mainactivity
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Patterns
 import androidx.lifecycle.*
 import androidx.room.Room
@@ -9,6 +10,7 @@ import com.example.mainactivity.ui.login.LoggedInUserView
 import com.example.mainactivity.ui.login.LoginFormState
 import com.example.mainactivity.ui.login.LoginResult
 import kotlinx.coroutines.launch
+import java.security.MessageDigest
 
 class UserViewModel(context: Context) : ViewModel() {
 
@@ -97,11 +99,16 @@ class UserViewModel(context: Context) : ViewModel() {
         }
     }
 
+    fun unbanUser(user: User) {
+        viewModelScope.launch {
+            database.userDao().unbanUser(user.id)
+            getAllUsers()
+        }
+    }
+
     fun login(username: String, password: String) {
         // can be launched in a separate asynchronous job
-        val result = database.login(username, password)
-
-        println(result)
+        val result = database.login(username, hashString(password, "SHA-256"))
 
         if (result is User) {
             _loginResult.value =
@@ -160,6 +167,28 @@ class UserViewModel(context: Context) : ViewModel() {
     }
 
     fun register(email: String, password: String, name: String): Boolean {
-        return addUser(name, email, password, 0.toString())
+        return addUser(name, email, hashString(password, "SHA-256"), 0.toString())
+    }
+
+    fun editUser(id: Int, username: String?, email: String?, money: String?) {
+        viewModelScope.launch {
+            database.userDao().editUser(id, username, email, money)
+            getAllUsers()
+        }
+    }
+
+    fun updateUserPassword(id: Int, password: String) {
+        val pass = hashString(password, "SHA-256")
+
+        viewModelScope.launch {
+            database.userDao().changeUserPassword(id, pass)
+            getAllUsers()
+        }
+    }
+
+    private fun hashString(input: String, algorithm: String): String    {
+        return MessageDigest.getInstance(algorithm)
+                .digest(input.toByteArray())
+                .fold("", { str, it -> str + "%02x".format(it) })
     }
 }
