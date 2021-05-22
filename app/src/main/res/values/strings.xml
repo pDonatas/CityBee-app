@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">CityBee app</string>
+    <string name="app_name">MainActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_bottom_navigation">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_cars">Cars</string>
+    <string name="title_wallet">Wallet</string>
     <string name="title_activity_admin">Administavimas</string>
     <string name="tab_text_1">Vartotojai</string>
     <string name="tab_text_2">Automobiliai</string>
