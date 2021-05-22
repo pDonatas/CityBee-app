@@ -26,16 +26,12 @@ class UsersFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val adapter = UserAdapter(UserAdapter.UserEditListener {
-            viewModel.updateUser(it)
-        }, UserAdapter.UserBanListener {
-            viewModel.banUser(it)
-        })
+        val adapter = activity?.let { UserAdapter(it, viewModel) }
 
         binding.list.adapter = adapter
 
         viewModel.users.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
+            adapter?.submitList(it)
         }
 
         binding.button5.setOnClickListener {
