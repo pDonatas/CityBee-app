@@ -1,9 +1,9 @@
 package com.example.mainactivity
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.mainactivity.data.Result
-import java.io.IOException
 
 @Database(entities = arrayOf(User::class), version = 1)
 abstract class UserDatabase : RoomDatabase() {
@@ -21,9 +21,5 @@ abstract class UserDatabase : RoomDatabase() {
         }
 
         return "Tokio vartotojo nėra";
-    }
-
-    fun logout() {
-        // TODO: revoke authentication
     }
 }

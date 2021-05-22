@@ -29,4 +29,13 @@ interface UserDao {
     fun userExists(username: String) : Boolean
 
 
+
+    @Query("UPDATE User SET banned=0 WHERE id=:id")
+    fun unbanUser(id: Int)
+
+    @Query("UPDATE User SET username=:username, email=:email, money=:money WHERE id=:id")
+    fun editUser(id: Int, username: String?, email: String?, money: String?)
+
+    @Query("UPDATE User SET password=:password WHERE id=:id")
+    fun changeUserPassword(id: Int, password: String)
 }

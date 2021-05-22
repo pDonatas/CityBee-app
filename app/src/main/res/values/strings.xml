@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">CityBee</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
@@ -30,4 +30,6 @@
     <string name="login_failed">"Prisijungti nepavyko"</string>
     <string name="action_register">Registracija</string>
     <string name="invalid_name">Vartotojo vardas negali būti tuščias</string>
+    <string name="money">Pinigai</string>
+    <string name="logout">Atsijungti</string>
 </resources>

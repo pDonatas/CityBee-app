@@ -24,6 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MainActivity">
+        <activity android:name=".UserEdit"></activity>
         <activity android:name=".Registration" />
         <activity
             android:name=".ui.login.Auth"
@@ -31,13 +32,10 @@
         <activity
             android:name=".Admin"
             android:label="@string/title_activity_admin"
-            android:theme="@style/Theme.MainActivity.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.MainActivity.NoActionBar"></activity>
         <activity
             android:name=".bottom_navigation"
-            android:label="@string/title_activity_bottom_navigation">
-
-        </activity>
+            android:label="@string/title_activity_bottom_navigation"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
