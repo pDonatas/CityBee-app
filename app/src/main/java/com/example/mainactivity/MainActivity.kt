@@ -55,9 +55,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-    }
-
     fun logout() {
         val pref = applicationContext
                 .getSharedPreferences("cityBee", 0)
