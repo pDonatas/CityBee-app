@@ -27,6 +27,7 @@ class CarViewModel(context: Context) : ViewModel() {
         }
     }
 
+
     fun addCar(manufacturer: String?, model: String?, manufacturing_year: String?, price: String?) {
         if (manufacturer != null && model != null && manufacturing_year != null && price != null) {
             manufacturing_year.toIntOrNull()?.let {

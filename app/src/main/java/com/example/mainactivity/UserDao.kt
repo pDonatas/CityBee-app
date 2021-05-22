@@ -27,4 +27,6 @@ interface UserDao {
 
     @Query("SELECT EXISTS(SELECT * FROM User WHERE username = :username)")
     fun userExists(username: String) : Boolean
+
+
 }
