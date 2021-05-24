@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.mainactivity.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_history"
+        android:name="com.example.mainactivity.ui.trips_history.TripsHistoryFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_trips_history" />
     <fragment
         android:id="@+id/navigation_cars"
         android:name="com.example.mainactivity.ui.cars.NavigationCarsFragment"
